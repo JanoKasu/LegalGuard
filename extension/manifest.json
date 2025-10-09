@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "Legalese Simplifier",
+    "description": "Simplify complex legal documents into plain English with ease.",
+    "version": "1.0",
+    "permissions": [
+        "contextMenus",
+        "storage",
+        "scripting",
+        "activeTab",
+        "tabs"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "result.html",
+                "css/bulma.css"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+    "trial_tokens": [
+        "Alls+gvWvPuIIgX/J+TaD+CDko+u6dcF2wyAQp7oPRrdqCWrOafmVq33Rg/L0mkgQc4FzcyYjM5AlpVE+LCn4AQAAABueyJvcmlnaW4iOiJjaHJvbWUtZXh0ZW5zaW9uOi8vY2ZiZmJramdoYW5lZm5lZW9jYnBjZWZrZWFibWpkb2YiLCJmZWF0dXJlIjoiQUlSZXdyaXRlckFQSSIsImV4cGlyeSI6MTc2OTQ3MjAwMH0="
+    ]
+}
