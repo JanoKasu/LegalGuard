@@ -6,34 +6,32 @@ chrome.runtime.onInstalled.addListener(() =>
     })
 );
 
+// Heuristic paragraph reconstruction
 function reconstructParagraphs(text) {
-    // Step 1: Normalize spaces and line breaks
     let normalized = text
         .replace(/\r\n/g, "\n")
-        .replace(/\n/g, " ")       // flatten any line breaks
-        .replace(/[ \t]+/g, " ")   // collapse extra spaces
+        .replace(/\n/g, " ")
+        .replace(/[ \t]+/g, " ")
         .trim();
 
-    // Step 2: Split into “paragraphs” heuristically
     const sentences = normalized.match(/[^.!?]+[.!?]+/g) || [normalized];
     const paragraphs = [];
     let current = "";
 
     for (const sentence of sentences) {
         current += sentence + " ";
-        // If current chunk has 3+ sentences or > 500 chars, commit as a paragraph
         if ((current.match(/[.!?]/g) || []).length >= 3 || current.length >= 500) {
             paragraphs.push(current.trim());
             current = "";
         }
     }
 
-    // Add remaining text as last paragraph
     if (current.trim()) paragraphs.push(current.trim());
 
     return paragraphs;
 }
 
+// Handle context menu click
 chrome.contextMenus.onClicked.addListener((info) => {
     if (info.menuItemId === "simplifyText" && info.selectionText) {
         const reconstructed = reconstructParagraphs(info.selectionText);
@@ -43,20 +41,24 @@ chrome.contextMenus.onClicked.addListener((info) => {
             chrome.tabs.onUpdated.addListener(function listener(tabId, changeInfo) {
                 if (tabId === newTab.id && changeInfo.status === 'complete') {
                     chrome.tabs.onUpdated.removeListener(listener);
+
+                    // Send original paragraphs as array
                     chrome.tabs.sendMessage(newTab.id, {
                         action: 'setText',
                         originalText: reconstructed,
                         simplifiedText: 'Rewriting...'
                     });
-                    rewriteText(reconstructed, newTab.id);
+
+                    // Rewrite each paragraph separately
+                    rewriteParagraphs(reconstructed, newTab.id);
                 }
             });
         });
     }
 });
 
-
-const rewriteText = async (originalText, tabId) => {
+// Rewrite each paragraph individually and update UI incrementally
+const rewriteParagraphs = async (paragraphs, tabId) => {
     try {
         if (!('Rewriter' in self)) throw new Error("Rewriter API is not available.");
         const availability = await Rewriter.availability();
@@ -68,12 +70,26 @@ const rewriteText = async (originalText, tabId) => {
             prompt: "Write this in very simple language for a person with low literacy. Include only the rewrite in your response."
         });
 
-        const rewrittenText = await rewriter.rewrite(originalText);
-        rewriter.destroy();
+        const simplifiedParagraphs = [];
 
-        chrome.tabs.sendMessage(tabId, { action: 'updateText', simplifiedText: rewrittenText });
+        // Iterate over each paragraph and rewrite separately
+        for (const paragraph of paragraphs) {
+            const rewritten = await rewriter.rewrite(paragraph);
+            simplifiedParagraphs.push(rewritten);
+
+            // Send incremental update to result page
+            chrome.tabs.sendMessage(tabId, {
+                action: 'updateText',
+                simplifiedText: [...simplifiedParagraphs] // send array of rewritten paragraphs
+            });
+        }
+
+        rewriter.destroy();
     } catch (e) {
-        console.error('Rewriter API Error:', e);
-        chrome.tabs.sendMessage(tabId, { action: 'updateText', simplifiedText: 'Error: Could not rewrite text.' });
+        console.error("Error during rewriting:", e);
+        chrome.tabs.sendMessage(tabId, {
+            action: 'updateText',
+            simplifiedText: ['Error: Could not rewrite text.']
+        });
     }
 };
