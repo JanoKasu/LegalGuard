@@ -32,37 +32,54 @@ function reconstructParagraphs(text) {
 }
 
 // Handle context menu click
-chrome.contextMenus.onClicked.addListener((info) => {
-    if (info.menuItemId === "simplifyText" && info.selectionText) {
-        const reconstructed = reconstructParagraphs(info.selectionText);
-        const resultsPageUrl = chrome.runtime.getURL('result.html');
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+    if (info.menuItemId !== "simplifyText" || !info.selectionText) return;
 
-        chrome.tabs.create({ url: resultsPageUrl }, (newTab) => {
-            chrome.tabs.onUpdated.addListener(function listener(tabId, changeInfo) {
-                if (tabId === newTab.id && changeInfo.status === 'complete') {
-                    chrome.tabs.onUpdated.removeListener(listener);
-
-                    // Send original paragraphs as array
-                    chrome.tabs.sendMessage(newTab.id, {
-                        action: 'setText',
-                        originalText: reconstructed,
-                        simplifiedText: 'Rewriting...'
-                    });
-
-                    // Rewrite each paragraph separately
-                    rewriteParagraphs(reconstructed, newTab.id);
-                }
-            });
-        });
+    // Ensure we have a valid tab
+    if (!tab || tab.id === undefined || tab.id === -1) {
+        console.error("No valid tab found for side panel.");
+        return;
     }
+
+    const reconstructed = reconstructParagraphs(info.selectionText);
+
+    // Must be called synchronously in response to user gesture
+    chrome.sidePanel.setOptions({
+        tabId: tab.id,
+        path: "result.html",
+        enabled: true
+    });
+
+    // Open the side panel (still inside the user gesture)
+    chrome.sidePanel.open({ tabId: tab.id }).catch(err => {
+        console.error("Failed to open side panel:", err);
+    });
+
+    // Handle messaging asynchronously afterward
+    chrome.runtime.onMessage.addListener(function listener(message) {
+        if (message.action === "sidePanelReady") {
+            chrome.runtime.onMessage.removeListener(listener);
+
+            chrome.runtime.sendMessage({
+                action: "setText",
+                originalText: reconstructed,
+                simplifiedText: "Rewriting..."
+            });
+
+            rewriteParagraphs(reconstructed);
+        }
+    });
 });
 
 // Rewrite each paragraph individually and update UI incrementally
-const rewriteParagraphs = async (paragraphs, tabId) => {
+const rewriteParagraphs = async (paragraphs) => {
     try {
         if (!('Rewriter' in self)) throw new Error("Rewriter API is not available.");
+
         const availability = await Rewriter.availability();
-        if (!['available', 'downloadable'].includes(availability)) throw new Error("Rewriter API not ready.");
+        if (!['available', 'downloadable'].includes(availability)) {
+            throw new Error(`Rewriter API not ready (status: ${availability})`);
+        }
 
         const rewriter = await Rewriter.create({
             tone: 'more-casual',
@@ -72,22 +89,23 @@ const rewriteParagraphs = async (paragraphs, tabId) => {
 
         const simplifiedParagraphs = [];
 
-        // Iterate over each paragraph and rewrite separately
+        // Rewrite each paragraph one by one
         for (const paragraph of paragraphs) {
             const rewritten = await rewriter.rewrite(paragraph);
             simplifiedParagraphs.push(rewritten);
 
-            // Send incremental update to result page
-            chrome.tabs.sendMessage(tabId, {
+            // Send incremental updates to the side panel
+            chrome.runtime.sendMessage({
                 action: 'updateText',
-                simplifiedText: [...simplifiedParagraphs] // send array of rewritten paragraphs
+                simplifiedText: [...simplifiedParagraphs]
             });
         }
 
         rewriter.destroy();
+
     } catch (e) {
         console.error("Error during rewriting:", e);
-        chrome.tabs.sendMessage(tabId, {
+        chrome.runtime.sendMessage({
             action: 'updateText',
             simplifiedText: ['Error: Could not rewrite text.']
         });

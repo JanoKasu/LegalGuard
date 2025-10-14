@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+    chrome.runtime.sendMessage({ action: "sidePanelReady" });
+
     const originalEl = document.getElementById("originalText"),
         simplifiedEl = document.getElementById("simplifiedText"),
         loadingEl = document.getElementById("loadingIndicator");

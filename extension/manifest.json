@@ -8,11 +8,15 @@
         "storage",
         "scripting",
         "activeTab",
-        "tabs"
+        "tabs",
+        "sidePanel"
     ],
     "host_permissions": [
         "<all_urls>"
     ],
+    "side_panel": {
+        "default_path": "result.html"
+    },
     "background": {
         "service_worker": "background.js"
     },

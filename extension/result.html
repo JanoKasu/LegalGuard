@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Text Simplifier Results</title>
 
     <!-- Bulma CSS -->
@@ -11,43 +11,29 @@
     <link rel="stylesheet" href="css/bulma-tooltip.css">
 
     <script defer src="glossary_tooltip.js"></script>
-
 </head>
 
-<body class="has-background-light" style="height: 100vh;">
+<body class="has-background-light min-height-100vh">
     <section class="section">
-        <div class="columns is-desktop">
-            <!-- Original Text Column -->
-            <div class="column is-half">
-                <div class="card">
-                    <header class="card-header">
-                        <p class="card-header-title" id="originalHeader">
-                            Original Text
-                        </p>
-                    </header>
-                    <div class="card-content">
-                        <div id="originalText" class="content has-background-light p-4"
-                            style="border: 1px solid #dbdbdb; border-radius: 6px; max-height: 70vh; overflow:auto;">
-                        </div>
-                    </div>
-                </div>
+        <div class="container">
+
+            <!-- Top (Original Text) -->
+            <div class="box mb-3">
+                <header class="card-header">
+                    <p class="card-header-title is-size-6">Original Text</p>
+                </header>
+                <div id="originalText" class="content p-3 has-background-white"
+                    style="max-height: 40vh; overflow-y: auto;"></div>
             </div>
 
-            <!-- Simplified Text Column -->
-            <div class="column is-half">
-                <div class="card">
-                    <header class="card-header">
-                        <p class="card-header-title" id="simplifiedHeader">
-                            Simplified Text
-                        </p>
-                    </header>
-                    <div class="card-content">
-                        <p id="loadingIndicator" class="has-text-grey mb-3">Rewriting...</p>
-                        <div id="simplifiedText" class="content has-background-light p-4 is-hidden"
-                            style="border: 1px solid #dbdbdb; border-radius: 6px; max-height: 70vh; overflow:auto;">
-                        </div>
-                    </div>
-                </div>
+            <!-- Middle (Simplified Text) -->
+            <div class="box mb-3">
+                <header class="card-header">
+                    <p class="card-header-title is-size-6">Simplified Text</p>
+                </header>
+                <p id="loadingIndicator" class="has-text-grey is-size-7 mb-2">Rewriting...</p>
+                <div id="simplifiedText" class="content p-3 has-background-white is-hidden"
+                    style="max-height: 40vh; overflow-y: auto;"></div>
             </div>
         </div>
     </section>
