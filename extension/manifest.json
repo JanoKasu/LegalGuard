@@ -15,15 +15,30 @@
         "<all_urls>"
     ],
     "side_panel": {
-        "default_path": "result.html"
+        "default_path": "html/result.html"
     },
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "scripts/background.js"
     },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "scripts/toast.js"
+            ],
+            "css": [
+                "css/toast.css"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
     "web_accessible_resources": [
         {
             "resources": [
-                "result.html",
+                "html/result.html",
+                "html/toast.html",
                 "css/bulma.css"
             ],
             "matches": [
@@ -31,6 +46,9 @@
             ]
         }
     ],
+    "action": {
+        "default_title": "Open Legalese Simplifier"
+    },
     "trial_tokens": [
         "Alls+gvWvPuIIgX/J+TaD+CDko+u6dcF2wyAQp7oPRrdqCWrOafmVq33Rg/L0mkgQc4FzcyYjM5AlpVE+LCn4AQAAABueyJvcmlnaW4iOiJjaHJvbWUtZXh0ZW5zaW9uOi8vY2ZiZmJramdoYW5lZm5lZW9jYnBjZWZrZWFibWpkb2YiLCJmZWF0dXJlIjoiQUlSZXdyaXRlckFQSSIsImV4cGlyeSI6MTc2OTQ3MjAwMH0="
     ]
