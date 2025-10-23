@@ -1,0 +1,66 @@
+{
+  "confidentiality": [
+    "confidentiality",
+    "confidential information",
+    "non-disclosure",
+    "proprietary information",
+    "trade secret"
+  ],
+  "liability": [
+    "indemnify",
+    "indemnification",
+    "hold harmless",
+    "liability",
+    "limited liability",
+    "unlimited liability",
+    "damages",
+    "consequential damages"
+  ],
+  "intellectual_property": [
+    "intellectual property",
+    "ownership",
+    "assignment",
+    "transfer of rights",
+    "license",
+    "licensing",
+    "perpetual license",
+    "irrevocable license"
+  ],
+  "termination": [
+    "termination",
+    "terminate",
+    "duration",
+    "effective date",
+    "renewal",
+    "auto-renewal",
+    "expiration"
+  ],
+  "governing_law": [
+    "governing law",
+    "applicable law",
+    "jurisdiction",
+    "exclusive jurisdiction",
+    "arbitration",
+    "binding arbitration",
+    "dispute resolution"
+  ],
+  "payment": [
+    "payment terms",
+    "non-refundable",
+    "refund",
+    "fees",
+    "subscription",
+    "recurring payment",
+    "penalty"
+  ],
+  "misc": [
+    "waiver",
+    "rights waiver",
+    "severability",
+    "amendment",
+    "written notice",
+    "entire agreement",
+    "compliance",
+    "force majeure"
+  ]
+}
