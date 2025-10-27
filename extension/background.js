@@ -17,7 +17,7 @@ async function verifySidePanelAPI() {
         console.error('[LG] sidePanel API not available');
         return false;
     }
-    
+
     try {
         // Test if we can access the API
         await chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true });
@@ -49,20 +49,20 @@ async function openSidePanelForTab(tabId) {
     }
 
     console.log('[LG] Opening side panel for tab:', tabId);
-    
+
     try {
         // Always set options first
-        await chrome.sidePanel.setOptions({ 
-            tabId, 
-            path: 'sidepanel.html', 
-            enabled: true 
+        await chrome.sidePanel.setOptions({
+            tabId,
+            path: 'sidepanel.html',
+            enabled: true
         });
         console.log('[LG] Side panel options set for tab:', tabId);
-        
+
         // Then open it
         await chrome.sidePanel.open({ tabId });
         console.log('[LG] Side panel opened for tab:', tabId);
-        
+
         return true;
     } catch (e) {
         console.error('[LG] Failed to open side panel for tab:', tabId, e);
@@ -77,7 +77,7 @@ async function getBestTabId(sender) {
         console.log('[LG] Using sender tab ID:', id);
         return id;
     }
-    
+
     // Fallback to active tab
     if (hasTabs) {
         try {
@@ -90,7 +90,7 @@ async function getBestTabId(sender) {
             console.warn('[LG] Failed to get active tab:', e);
         }
     }
-    
+
     throw new Error('No tabId available');
 }
 
@@ -100,7 +100,7 @@ if (hasRuntime) {
         console.log('[LG] Extension installed/updated');
         await verifySidePanelAPI();
         setBehavior();
-        
+
         if (hasContextMenus) {
             try {
                 chrome.contextMenus.create({
@@ -114,7 +114,7 @@ if (hasRuntime) {
             }
         }
     });
-    
+
     // Try set behavior on each startup, too
     setBehavior();
 }
@@ -134,12 +134,27 @@ if (hasAction && chrome.action.onClicked?.addListener) {
 
 // Context menu — valid user gesture
 if (hasContextMenus && chrome.contextMenus.onClicked?.addListener) {
-    chrome.contextMenus.onClicked.addListener(async (info, tab) => {
+    // Use a non-async handler so we don't await anything before calling sidePanel APIs,
+    // preserving the original user gesture context; require a tab.id to be present.
+    chrome.contextMenus.onClicked.addListener((info, tab) => {
         if (info.menuItemId !== 'lg-open-analysis') return;
         try {
             console.log('[LG] Context menu clicked for tab:', tab?.id);
-            const tabId = tab?.id ?? (await getBestTabId({}));
-            await openSidePanelForTab(tabId);
+            const tabId = tab?.id;
+            if (typeof tabId !== 'number' || tabId < 0) {
+                console.error('[LG] No valid tab id available from context menu event; cannot open side panel without user gesture');
+                return;
+            }
+
+            // Set options and open immediately (do not await) to preserve the user gesture.
+            chrome.sidePanel.setOptions({
+                tabId,
+                path: 'sidepanel.html',
+                enabled: true
+            });
+            chrome.sidePanel.open({ tabId }).catch(e => {
+                console.error('[LG] Side panel open failed from context menu:', e);
+            });
         } catch (e) {
             console.error('[LG] Context menu open failed:', e?.message || e);
         }
@@ -164,21 +179,21 @@ if (hasCommands && chrome.commands.onCommand?.addListener) {
 if (hasRuntime && chrome.runtime.onMessage?.addListener) {
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         console.log('[LG] Message received:', request?.action, 'from tab:', sender?.tab?.id);
-        
+
         // Handle openSidePanel action - use the existing user gesture handlers
         if (request?.action === 'openSidePanel') {
             // Instead of trying to open directly, trigger the action icon click
             // This preserves the user gesture context
             try {
                 console.log('[LG] Triggering action icon click for tab:', sender?.tab?.id);
-                
+
                 // Get the tab ID
                 const tabId = sender?.tab?.id;
                 if (!tabId) {
                     sendResponse({ success: false, error: 'No tab ID available' });
                     return;
                 }
-                
+
                 // Use the existing openSidePanelForTab function
                 openSidePanelForTab(tabId)
                     .then(() => {
@@ -228,7 +243,7 @@ if (hasRuntime && chrome.runtime.onMessage?.addListener) {
                 });
             return true;
         }
-        
+
         // If no action matches, don't return true
         return false;
     });
