@@ -1,0 +1,288 @@
+
+[
+    {
+      "term": "\\bindemnif(y|ied|ies|ication|ications)?\\b",
+      "category": "Rights & Obligations"
+    },
+    {
+      "term": "\\bliabilit(y|ies)\\b",
+      "category": "Rights & Obligations"
+    },
+    {
+      "term": "\\blimitation(s)? of liabilit(y|ies)\\b",
+      "category": "Rights & Obligations"
+    },
+    {
+      "term": "\\bobligation(s)?\\b",
+      "category": "Rights & Obligations"
+    },
+    {
+      "term": "\\brepresentation(s)? and warrant(y|ies)\\b",
+      "category": "Rights & Obligations"
+    },
+    {
+      "term": "\\bbreach(es)? of contract\\b",
+      "category": "Rights & Obligations"
+    },
+    {
+      "term": "\\bforce majeure\\b",
+      "category": "Rights & Obligations"
+    },
+    {
+      "term": "\\bassign(ment|ments|ed|ing)?\\b",
+      "category": "Rights & Obligations"
+    },
+    {
+      "term": "\\bthird[- ]party beneficiar(y|ies)\\b",
+      "category": "Rights & Obligations"
+    },
+    {
+      "term": "\\bpersonal data\\b",
+      "category": "Data & Privacy"
+    },
+    {
+      "term": "\\bconfidential information\\b",
+      "category": "Data & Privacy"
+    },
+    {
+      "term": "\\bdata process(ing|ed|or|ors)?\\b",
+      "category": "Data & Privacy"
+    },
+    {
+      "term": "\\bdata controll(er|ers)?\\b",
+      "category": "Data & Privacy"
+    },
+    {
+      "term": "\\bgdpr\\b",
+      "category": "Data & Privacy"
+    },
+    {
+      "term": "\\bccpa\\b",
+      "category": "Data & Privacy"
+    },
+    {
+      "term": "\\bcookie(s)?\\b",
+      "category": "Data & Privacy"
+    },
+    {
+      "term": "\\bconsent(ed|s|ing)?\\b",
+      "category": "Data & Privacy"
+    },
+    {
+      "term": "\\bretention period(s)?\\b",
+      "category": "Data & Privacy"
+    },
+    {
+      "term": "\\bthird[- ]party shar(ing|ed)?\\b",
+      "category": "Data & Privacy"
+    },
+    {
+      "term": "\\banonymi[sz]ation\\b",
+      "category": "Data & Privacy"
+    },
+    {
+      "term": "\\bdata breach(es)?\\b",
+      "category": "Data & Privacy"
+    },
+    {
+      "term": "\\bbilling cycle(s)?\\b",
+      "category": "Payment & Subscription"
+    },
+    {
+      "term": "\\brenew(al|ed|s|ing)?\\b",
+      "category": "Payment & Subscription"
+    },
+    {
+      "term": "\\bcancell?ation(s)?\\b",
+      "category": "Payment & Subscription"
+    },
+    {
+      "term": "\\brefund policy\\b|\\brefund(s)?\\b",
+      "category": "Payment & Subscription"
+    },
+    {
+      "term": "\\bsubscription(s)? fee(s)?\\b",
+      "category": "Payment & Subscription"
+    },
+    {
+      "term": "\\btrial period(s)?\\b",
+      "category": "Payment & Subscription"
+    },
+    {
+      "term": "\\bterminat(e|ed|ion|ions)?\\b",
+      "category": "Payment & Subscription"
+    },
+    {
+      "term": "\\blate payment(s)?\\b",
+      "category": "Payment & Subscription"
+    },
+    {
+      "term": "\\bcharge[- ]?back(s)?\\b",
+      "category": "Payment & Subscription"
+    },
+    {
+      "term": "\\bcredit authori[sz]ation(s)?\\b",
+      "category": "Payment & Subscription"
+    },
+    {
+      "term": "\\bdisclaimer(s)?\\b",
+      "category": "Legal Risks & Disclaimer"
+    },
+    {
+      "term": "\\bno warrant(y|ies)\\b",
+      "category": "Legal Risks & Disclaimer"
+    },
+    {
+      "term": "\\bgovern(ing)? law(s)?\\b",
+      "category": "Legal Risks & Disclaimer"
+    },
+    {
+      "term": "\\bjurisdiction(s)?\\b",
+      "category": "Legal Risks & Disclaimer"
+    },
+    {
+      "term": "\\barbitrat(e|ion|ed|ing)?\\b",
+      "category": "Legal Risks & Disclaimer"
+    },
+    {
+      "term": "\\bwaiv(e|er|ed|ing|es)\\b",
+      "category": "Legal Risks & Disclaimer"
+    },
+    {
+      "term": "\\bseverabilit(y|ies)\\b",
+      "category": "Legal Risks & Disclaimer"
+    },
+    {
+      "term": "\\bclass action waiv(er|ers)?\\b",
+      "category": "Legal Risks & Disclaimer"
+    },
+    {
+      "term": "\\blimitation period(s)?\\b",
+      "category": "Legal Risks & Disclaimer"
+    },
+    {
+      "term": "\\bentire agreement(s)?\\b",
+      "category": "Legal Risks & Disclaimer"
+    },
+    {
+      "term": "\\bcopyright(s)?\\b",
+      "category": "Intellectual Property"
+    },
+    {
+      "term": "\\btrademark(s)?\\b",
+      "category": "Intellectual Property"
+    },
+    {
+      "term": "\\bpatent(s|ed|ing)?\\b",
+      "category": "Intellectual Property"
+    },
+    {
+      "term": "\\blicen[sc]e(s|d|ing)?\\b",
+      "category": "Intellectual Property"
+    },
+    {
+      "term": "\\bproprietary right(s)?\\b",
+      "category": "Intellectual Property"
+    },
+    {
+      "term": "\\bderivative work(s)?\\b",
+      "category": "Intellectual Property"
+    },
+    {
+      "term": "\\bownership\\b",
+      "category": "Intellectual Property"
+    },
+    {
+      "term": "\\buser content\\b",
+      "category": "Intellectual Property"
+    },
+    {
+      "term": "\\b(ip|intellectual property) infringement(s)?\\b",
+      "category": "Intellectual Property"
+    },
+    {
+      "term": "\\bopen[- ]source\\b",
+      "category": "Intellectual Property"
+    },
+    {
+      "term": "\\bacceptable use\\b",
+      "category": "User Conduct"
+    },
+    {
+      "term": "\\bprohibit(ed|s|ing|ion|ions)? conduct\\b",
+      "category": "User Conduct"
+    },
+    {
+      "term": "\\btermination for cause\\b",
+      "category": "User Conduct"
+    },
+    {
+      "term": "\\baccount suspension(s)?\\b",
+      "category": "User Conduct"
+    },
+    {
+      "term": "\\buser responsibilit(y|ies)\\b",
+      "category": "User Conduct"
+    },
+    {
+      "term": "\\bcontent moderation\\b",
+      "category": "User Conduct"
+    },
+    {
+      "term": "\\bcommunity guideline(s)?\\b",
+      "category": "User Conduct"
+    },
+    {
+      "term": "\\bharass(ment|ed|es|ing)?\\b",
+      "category": "User Conduct"
+    },
+    {
+      "term": "\\bmisuse\\b|\\babuse\\b",
+      "category": "User Conduct"
+    },
+    {
+      "term": "\\bcompliance\\b|\\bcomply\\b|\\bcomplied\\b",
+      "category": "User Conduct"
+    },
+    {
+      "term": "\\bamend(ment|ments|ed|ing)?\\b",
+      "category": "Miscellaneous"
+    },
+    {
+      "term": "\\bcounterpart(s)?\\b",
+      "category": "Miscellaneous"
+    },
+    {
+      "term": "\\bnotice(s)?\\b",
+      "category": "Miscellaneous"
+    },
+    {
+      "term": "\\bsurviv(al|e|es|ing)\\b",
+      "category": "Miscellaneous"
+    },
+    {
+      "term": "\\bhead(ing|ings)?\\b",
+      "category": "Miscellaneous"
+    },
+    {
+      "term": "\\bintegration clause(s)?\\b",
+      "category": "Miscellaneous"
+    },
+    {
+      "term": "\\bcounterclaim(s)?\\b",
+      "category": "Miscellaneous"
+    },
+    {
+      "term": "\\bgood faith\\b",
+      "category": "Miscellaneous"
+    },
+    {
+      "term": "\\bnotice period(s)?\\b",
+      "category": "Miscellaneous"
+    },
+    {
+      "term": "\\bcompliance with law(s)?\\b",
+      "category": "Miscellaneous"
+    }
+  ]
+  

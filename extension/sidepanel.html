@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LegalGuard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Content */
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+        }
+
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .card {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 16px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #6b7280;
+        }
+
+        /* Risk Items */
+        .risk-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .risk-item {
+            display: flex;
+            gap: 12px;
+            align-items: start;
+        }
+
+        .risk-icon {
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        .risk-content {
+            flex: 1;
+        }
+
+        .risk-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .risk-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .risk-description {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .badge {
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .badge-high {
+            background: #fca5a5;
+            color: #7f1d1d;
+        }
+
+        .badge-medium {
+            background: #fcd34d;
+            color: #78350f;
+        }
+
+        .badge-low {
+            background: #86efac;
+            color: #14532d;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-outline {
+            background: white;
+            border: 1px solid #e5e7eb;
+            color: #6b7280;
+        }
+
+        .btn-outline:hover {
+            background: #f9fafb;
+            color: #1a1a1a;
+        }
+
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+
+        /* Chat */
+        .chat-container {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.5;
+            word-wrap: break-word;
+            position: relative;
+        }
+
+        .message-user {
+            align-self: flex-end;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-left: 20%;
+        }
+
+        .message-assistant {
+            align-self: flex-start;
+            background: white;
+            border: 1px solid #e5e7eb;
+            color: #1a1a1a;
+            margin-right: 20%;
+        }
+
+        .message-streaming {
+            position: relative;
+        }
+
+        .message-streaming::after {
+            content: '...';
+            animation: typing 1.5s infinite;
+        }
+
+        @keyframes typing {
+            0%, 60% { opacity: 1; }
+            61%, 100% { opacity: 0; }
+        }
+
+        .empty-state {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #9ca3af;
+            font-size: 13px;
+            font-style: italic;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .api-status {
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .api-status.available {
+            background: #f0fdf4;
+            color: #14532d;
+            border: 1px solid #bbf7d0;
+        }
+
+        .api-status.downloading {
+            background: #fef3c7;
+            color: #78350f;
+            border: 1px solid #fde68a;
+        }
+
+        .api-status.unavailable {
+            background: #fef2f2;
+            color: #7f1d1d;
+            border: 1px solid #fecaca;
+        }
+
+        /* Language Controls */
+        .language-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .language-selector label {
+            font-size: 12px;
+            font-weight: 500;
+            color: #475569;
+        }
+
+        .language-selector select {
+            padding: 4px 8px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            font-size: 12px;
+            background: white;
+        }
+
+        .translation-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #475569;
+        }
+
+        .translation-toggle input[type="checkbox"] {
+            margin: 0;
+        }
+
+        .translation-status {
+            font-size: 11px;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .message-translated {
+            border-left: 3px solid #3b82f6;
+        }
+
+        .translation-controls {
+            display: flex;
+            gap: 4px;
+            margin-top: 8px;
+        }
+
+        .translation-btn {
+            padding: 2px 6px;
+            font-size: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            background: white;
+            color: #475569;
+            cursor: pointer;
+        }
+
+        .translation-btn:hover {
+            background: #f1f5f9;
+        }
+
+        .translation-btn.active {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        /* Structured Content Styles */
+        .structured-content {
+            line-height: 1.6;
+        }
+
+        .structured-content h1,
+        .structured-content h2,
+        .structured-content h3 {
+            margin: 12px 0 8px 0;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .structured-content h1 {
+            font-size: 16px;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 4px;
+        }
+
+        .structured-content h2 {
+            font-size: 15px;
+            color: #374151;
+        }
+
+        .structured-content h3 {
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        .structured-content p {
+            margin: 8px 0;
+            color: #374151;
+        }
+
+        .structured-content ul,
+        .structured-content ol {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+
+        .structured-content li {
+            margin: 4px 0;
+            color: #374151;
+        }
+
+        .structured-content strong,
+        .structured-content b {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .structured-content em,
+        .structured-content i {
+            font-style: italic;
+            color: #6b7280;
+        }
+
+        .structured-content blockquote {
+            margin: 12px 0;
+            padding: 8px 12px;
+            background: #f9fafb;
+            border-left: 4px solid #3b82f6;
+            border-radius: 4px;
+            font-style: italic;
+            color: #4b5563;
+        }
+
+        .structured-content code {
+            background: #f3f4f6;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #dc2626;
+        }
+
+        .structured-content pre {
+            background: #f3f4f6;
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 8px 0;
+        }
+
+        .structured-content pre code {
+            background: none;
+            padding: 0;
+            color: #374151;
+        }
+
+        /* ELI3 Mode Styles */
+        .eli3-mode {
+            font-size: 15px;
+        }
+
+        .eli3-mode h1,
+        .eli3-mode h2,
+        .eli3-mode h3 {
+            color: #7c3aed;
+        }
+
+        .eli3-mode li {
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .eli3-mode strong {
+            color: #7c3aed;
+        }
+
+        .eli3-mode blockquote {
+            background: #fef3c7;
+            border-left-color: #f59e0b;
+            color: #92400e;
+        }
+
+        /* Input */
+        .input-area {
+            border-top: 1px solid #e5e7eb;
+            padding: 16px;
+            background: white;
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .input:focus {
+            border-color: #667eea;
+        }
+
+        .mute-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .mute-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .mute-toggle input[type="checkbox"] {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <div class="logo">🛡️</div>
+            <div class="title">LegalGuard Analysis</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Page Summary -->
+        <div class="section">
+            <div class="section-title">Page Analysis</div>
+            <div class="card" id="pageSummary">
+                <p>Loading analysis...</p>
+            </div>
+        </div>
+
+        <!-- Detected Categories -->
+        <div class="section">
+            <div class="section-title">Legal Terms Detected</div>
+            <div class="card">
+                <div class="risk-list" id="categoriesList">
+                    <div class="empty-state">
+                        No legal terms detected on this page.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clause Q&A -->
+        <div class="section">
+            <div class="section-title">Clause Q&A</div>
+            <div class="language-controls">
+                <div class="language-selector">
+                    <label for="userLanguage">Your Language:</label>
+                    <select id="userLanguage">
+                        <option value="auto">Auto-detect</option>
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                        <option value="it">Italiano</option>
+                        <option value="pt">Português</option>
+                        <option value="ru">Русский</option>
+                        <option value="ja">日本語</option>
+                        <option value="ko">한국어</option>
+                        <option value="zh">中文</option>
+                        <option value="ar">العربية</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                </div>
+                <div class="translation-toggle">
+                    <input type="checkbox" id="autoTranslate" checked>
+                    <label for="autoTranslate">Auto-translate Q&A</label>
+                </div>
+                <div class="translation-status" id="translationStatus">
+                    Translation ready
+                </div>
+            </div>
+            <div class="chat-container">
+                <div class="api-status" id="apiStatus" style="display: none;">
+                    Checking AI availability...
+                </div>
+                <div class="messages" id="messages">
+                    <div class="empty-state">
+                        Start by highlighting a clause or asking a question below.<br>
+                        <small>All processing happens locally on your device.</small>
+                    </div>
+                </div>
+            </div>
+            <p style="font-size: 12px; color: #9ca3af; text-align: center; margin-top: 8px; font-style: italic;">
+                All your questions stay local — we never send them anywhere.
+            </p>
+        </div>
+
+        <!-- Mute Controls -->
+        <div class="section">
+            <div class="section-title">Settings</div>
+            <div class="card">
+                <div class="mute-controls">
+                    <label class="mute-toggle">
+                        <input type="checkbox" id="muteToggle">
+                        Mute notifications for this site
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="input-area">
+        <div class="quick-actions">
+            <button class="btn btn-outline btn-small" id="explain-btn">Explain</button>
+            <button class="btn btn-outline btn-small" id="eli3-btn">Explain like I'm 3</button>
+            <button class="btn btn-outline btn-small" id="clear-btn">Clear Chat</button>
+        </div>
+        <div class="input-group">
+            <input type="text" class="input" id="chat-input" placeholder="Ask what this clause means..." />
+            <button class="btn btn-primary" id="send-btn" disabled>📤</button>
+        </div>
+        <div class="input-hint" id="inputHint" style="font-size: 11px; color: #9ca3af; margin-top: 8px; text-align: center;">
+            Press Enter to send, Shift+Enter for new line
+        </div>
+    </div>
+
+    <!-- Markdown rendering libraries -->
+    <script src="marked.min.js"></script>
+    
+    <script src="sidepanel.js"></script>
+</body>
+</html>
+
+

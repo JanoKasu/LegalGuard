@@ -1,50 +1,27 @@
 {
   "manifest_version": 3,
-  "name": "Legalese Simplifier",
-  "description": "Simplify complex legal documents into plain English with ease.",
-  "version": "1.0",
-
-  "permissions": [
-    "contextMenus",
-    "storage",
-    "scripting",
-    "activeTab",
-    "tabs"
-  ],
-
-  "host_permissions": [
-    "<all_urls>"
-  ],
-
-  "background": {
-    "service_worker": "background.js"
-  },
-
-  /* ✅ 1. Automatically inject content script (toast detector) into all webpages */
+  "name": "LegalGuard",
+  "version": "5.0",
+  "permissions": ["contextMenus","storage","scripting","activeTab","tabs","sidePanel"],
+  "side_panel": { "default_path": "sidepanel.html" },
+  "background": { "service_worker": "background.js", "type": "module" },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["glossary_toast.js"],   /* ⬅️ 这里要改成 glossary_toast.js（不是 glossary_tooltip.js）*/
-      "css": ["css/toast.css"],
-      "run_at": "document_idle"
+      "js": ["glossary_toast.js"],
+      "run_at": "document_end"
     }
   ],
-
-  /* ✅ 2. Allow toast script to read internal files (JSON, CSS, result page) */
   "web_accessible_resources": [
     {
-      "resources": [
-        "result.html",
-        "css/bulma.css",
-        "css/toast.css",
-        "glossary_tri.json"        /* ⬅️ 确保文件名和你的实际文件一致（别多 s）*/
-      ],
+      "resources": ["glossary_tri.json", "css/toast.css"],
       "matches": ["<all_urls>"]
     }
   ],
-
-  "trial_tokens": [
-    "Alls+gvWvPuIIgX/J+TaD+CDko+u6dcF2wyAQp7oPRrdqCWrOafmVq33Rg/L0mkgQc4FzcyYjM5AlpVE+LCn4AQAAABueyJvcmlnaW4iOiJjaHJvbWUtZXh0ZW5zaW9uOi8vY2ZiZmJramdoYW5lZm5lZW9jYnBjZWZrZWFibWpkb2YiLCJmZWF0dXJlIjoiQUlSZXdyaXRlckFQSSIsImV4cGlyeSI6MTc2OTQ3MjAwMH0="
-  ]
+  "commands": {
+    "lg-open-panel": {
+      "suggested_key": { "default": "Alt+L" },
+      "description": "Open LegalGuard side panel"
+    }
+  }
 }
-
