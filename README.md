@@ -41,7 +41,7 @@ Our mission: make digital consent *informed*, *accessible*, and *human-centered.
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/yourusername/LegalTextSimplifier.git
-   cd main
+   cd LegalGuard
    ```
 
 2. **Load the extension:**
@@ -192,11 +192,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - 🐛 **Bug Reports**: [Open an issue](https://github.com/yourusername/LegalTextSimplifier/issues)
 - 💡 **Feature Requests**: [Start a discussion](https://github.com/yourusername/LegalTextSimplifier/discussions)
-- 📧 **Contact**: [your-email@example.com](08ireneye@gmail.com)
+- 📧 **Contact**: [08ireneye@gmail.com][Pelica....]
 If you’re looking to **collaborate**, **find engineers or product managers**, or just want to **discuss ideas around AI + law**, feel free to reach out — we’d love to connect! 🤝
 ---
 
 **Made with ❤️ for a more transparent digital world**
+
 
 
 
