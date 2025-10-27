@@ -41,7 +41,7 @@ Our mission: make digital consent *informed*, *accessible*, and *human-centered.
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/yourusername/LegalTextSimplifier.git
-   cd LegalTextSimplifier
+   cd main
    ```
 
 2. **Load the extension:**
@@ -197,5 +197,6 @@ If you’re looking to **collaborate**, **find engineers or product managers**, 
 ---
 
 **Made with ❤️ for a more transparent digital world**
+
 
 
