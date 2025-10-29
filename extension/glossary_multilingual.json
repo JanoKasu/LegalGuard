@@ -1,0 +1,1067 @@
+[
+    {
+      "term": "\\bindemnif(y|ied|ies|ication|ications)?\\b",
+      "category": "Rights & Obligations",
+      "language": "en"
+    },
+    {
+      "term": "\\bliabilit(y|ies)\\b",
+      "category": "Rights & Obligations",
+      "language": "en"
+    },
+    {
+      "term": "\\blimitation(s)? of liabilit(y|ies)\\b",
+      "category": "Rights & Obligations",
+      "language": "en"
+    },
+    {
+      "term": "\\bobligation(s)?\\b",
+      "category": "Rights & Obligations",
+      "language": "en"
+    },
+    {
+      "term": "\\brepresentation(s)? and warrant(y|ies)\\b",
+      "category": "Rights & Obligations",
+      "language": "en"
+    },
+    {
+      "term": "\\bbreach(es)? of contract\\b",
+      "category": "Rights & Obligations",
+      "language": "en"
+    },
+    {
+      "term": "\\bforce majeure\\b",
+      "category": "Rights & Obligations",
+      "language": "en"
+    },
+    {
+      "term": "\\bassign(ment|ments|ed|ing)?\\b",
+      "category": "Rights & Obligations",
+      "language": "en"
+    },
+    {
+      "term": "\\bthird[- ]party beneficiar(y|ies)\\b",
+      "category": "Rights & Obligations",
+      "language": "en"
+    },
+    {
+      "term": "\\bpersonal data\\b",
+      "category": "Data & Privacy",
+      "language": "en"
+    },
+    {
+      "term": "\\bconfidential information\\b",
+      "category": "Data & Privacy",
+      "language": "en"
+    },
+    {
+      "term": "\\bdata process(ing|ed|or|ors)?\\b",
+      "category": "Data & Privacy",
+      "language": "en"
+    },
+    {
+      "term": "\\bdata controll(er|ers)?\\b",
+      "category": "Data & Privacy",
+      "language": "en"
+    },
+    {
+      "term": "\\bgdpr\\b",
+      "category": "Data & Privacy",
+      "language": "en"
+    },
+    {
+      "term": "\\bccpa\\b",
+      "category": "Data & Privacy",
+      "language": "en"
+    },
+    {
+      "term": "\\bcookie(s)?\\b",
+      "category": "Data & Privacy",
+      "language": "en"
+    },
+    {
+      "term": "\\bconsent(ed|s|ing)?\\b",
+      "category": "Data & Privacy",
+      "language": "en"
+    },
+    {
+      "term": "\\bretention period(s)?\\b",
+      "category": "Data & Privacy",
+      "language": "en"
+    },
+    {
+      "term": "\\bthird[- ]party shar(ing|ed)?\\b",
+      "category": "Data & Privacy",
+      "language": "en"
+    },
+    {
+      "term": "\\banonymi[sz]ation\\b",
+      "category": "Data & Privacy",
+      "language": "en"
+    },
+    {
+      "term": "\\bdata breach(es)?\\b",
+      "category": "Data & Privacy",
+      "language": "en"
+    },
+    {
+      "term": "\\bbilling cycle(s)?\\b",
+      "category": "Payment & Subscription",
+      "language": "en"
+    },
+    {
+      "term": "\\brenew(al|ed|s|ing)?\\b",
+      "category": "Payment & Subscription",
+      "language": "en"
+    },
+    {
+      "term": "\\bcancell?ation(s)?\\b",
+      "category": "Payment & Subscription",
+      "language": "en"
+    },
+    {
+      "term": "\\brefund policy\\b|\\brefund(s)?\\b",
+      "category": "Payment & Subscription",
+      "language": "en"
+    },
+    {
+      "term": "\\bsubscription(s)? fee(s)?\\b",
+      "category": "Payment & Subscription",
+      "language": "en"
+    },
+    {
+      "term": "\\btrial period(s)?\\b",
+      "category": "Payment & Subscription",
+      "language": "en"
+    },
+    {
+      "term": "\\bterminat(e|ed|ion|ions)?\\b",
+      "category": "Payment & Subscription",
+      "language": "en"
+    },
+    {
+      "term": "\\blate payment(s)?\\b",
+      "category": "Payment & Subscription",
+      "language": "en"
+    },
+    {
+      "term": "\\bcharge[- ]?back(s)?\\b",
+      "category": "Payment & Subscription",
+      "language": "en"
+    },
+    {
+      "term": "\\bcredit authori[sz]ation(s)?\\b",
+      "category": "Payment & Subscription",
+      "language": "en"
+    },
+    {
+      "term": "\\bdisclaimer(s)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "en"
+    },
+    {
+      "term": "\\bno warrant(y|ies)\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "en"
+    },
+    {
+      "term": "\\bgovern(ing)? law(s)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "en"
+    },
+    {
+      "term": "\\bjurisdiction(s)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "en"
+    },
+    {
+      "term": "\\barbitrat(e|ion|ed|ing)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "en"
+    },
+    {
+      "term": "\\bwaiv(e|er|ed|ing|es)\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "en"
+    },
+    {
+      "term": "\\bseverabilit(y|ies)\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "en"
+    },
+    {
+      "term": "\\bclass action waiv(er|ers)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "en"
+    },
+    {
+      "term": "\\blimitation period(s)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "en"
+    },
+    {
+      "term": "\\bentire agreement(s)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "en"
+    },
+    {
+      "term": "\\bcopyright(s)?\\b",
+      "category": "Intellectual Property",
+      "language": "en"
+    },
+    {
+      "term": "\\btrademark(s)?\\b",
+      "category": "Intellectual Property",
+      "language": "en"
+    },
+    {
+      "term": "\\bpatent(s|ed|ing)?\\b",
+      "category": "Intellectual Property",
+      "language": "en"
+    },
+    {
+      "term": "\\blicen[sc]e(s|d|ing)?\\b",
+      "category": "Intellectual Property",
+      "language": "en"
+    },
+    {
+      "term": "\\bproprietary right(s)?\\b",
+      "category": "Intellectual Property",
+      "language": "en"
+    },
+    {
+      "term": "\\bderivative work(s)?\\b",
+      "category": "Intellectual Property",
+      "language": "en"
+    },
+    {
+      "term": "\\bownership\\b",
+      "category": "Intellectual Property",
+      "language": "en"
+    },
+    {
+      "term": "\\buser content\\b",
+      "category": "Intellectual Property",
+      "language": "en"
+    },
+    {
+      "term": "\\bacceptable use\\b",
+      "category": "User Conduct",
+      "language": "en"
+    },
+    {
+      "term": "\\bprohibited activit(y|ies)\\b",
+      "category": "User Conduct",
+      "language": "en"
+    },
+    {
+      "term": "\\bterms of service\\b",
+      "category": "User Conduct",
+      "language": "en"
+    },
+    {
+      "term": "\\buser agreement(s)?\\b",
+      "category": "User Conduct",
+      "language": "en"
+    },
+    {
+      "term": "\\bcode of conduct\\b",
+      "category": "User Conduct",
+      "language": "en"
+    },
+    {
+      "term": "\\bviolation(s)?\\b",
+      "category": "User Conduct",
+      "language": "en"
+    },
+    {
+      "term": "\\bsuspension(s)?\\b",
+      "category": "User Conduct",
+      "language": "en"
+    },
+    {
+      "term": "\\baccount termination\\b",
+      "category": "User Conduct",
+      "language": "en"
+    },
+    {
+      "term": "\\bresponsabilidad(es)?\\b",
+      "category": "Rights & Obligations",
+      "language": "es"
+    },
+    {
+      "term": "\\blimitaci[óo]n(es)? de responsabilidad\\b",
+      "category": "Rights & Obligations",
+      "language": "es"
+    },
+    {
+      "term": "\\bobligaci[óo]n(es)?\\b",
+      "category": "Rights & Obligations",
+      "language": "es"
+    },
+    {
+      "term": "\\bincumplimiento(s)? de contrato\\b",
+      "category": "Rights & Obligations",
+      "language": "es"
+    },
+    {
+      "term": "\\bfuerza mayor\\b",
+      "category": "Rights & Obligations",
+      "language": "es"
+    },
+    {
+      "term": "\\bcesi[óo]n(es)?\\b",
+      "category": "Rights & Obligations",
+      "language": "es"
+    },
+    {
+      "term": "\\bdatos personales\\b",
+      "category": "Data & Privacy",
+      "language": "es"
+    },
+    {
+      "term": "\\binformaci[óo]n confidencial\\b",
+      "category": "Data & Privacy",
+      "language": "es"
+    },
+    {
+      "term": "\\bprocesamiento de datos\\b",
+      "category": "Data & Privacy",
+      "language": "es"
+    },
+    {
+      "term": "\\bcontrolador(es)? de datos\\b",
+      "category": "Data & Privacy",
+      "language": "es"
+    },
+    {
+      "term": "\\bcookie(s)?\\b",
+      "category": "Data & Privacy",
+      "language": "es"
+    },
+    {
+      "term": "\\bconsentimiento(s)?\\b",
+      "category": "Data & Privacy",
+      "language": "es"
+    },
+    {
+      "term": "\\bper[ií]odo(s)? de retenci[óo]n\\b",
+      "category": "Data & Privacy",
+      "language": "es"
+    },
+    {
+      "term": "\\bcompartir con terceros\\b",
+      "category": "Data & Privacy",
+      "language": "es"
+    },
+    {
+      "term": "\\banonimizaci[óo]n\\b",
+      "category": "Data & Privacy",
+      "language": "es"
+    },
+    {
+      "term": "\\bviolaci[óo]n(es)? de datos\\b",
+      "category": "Data & Privacy",
+      "language": "es"
+    },
+    {
+      "term": "\\bciclo(s)? de facturaci[óo]n\\b",
+      "category": "Payment & Subscription",
+      "language": "es"
+    },
+    {
+      "term": "\\brenovaci[óo]n(es)?\\b",
+      "category": "Payment & Subscription",
+      "language": "es"
+    },
+    {
+      "term": "\\bcancelaci[óo]n(es)?\\b",
+      "category": "Payment & Subscription",
+      "language": "es"
+    },
+    {
+      "term": "\\bpol[ií]tica de reembolso\\b|\\breembolso(s)?\\b",
+      "category": "Payment & Subscription",
+      "language": "es"
+    },
+    {
+      "term": "\\btarifa(s)? de suscripci[óo]n\\b",
+      "category": "Payment & Subscription",
+      "language": "es"
+    },
+    {
+      "term": "\\bper[ií]odo(s)? de prueba\\b",
+      "category": "Payment & Subscription",
+      "language": "es"
+    },
+    {
+      "term": "\\bterminaci[óo]n(es)?\\b",
+      "category": "Payment & Subscription",
+      "language": "es"
+    },
+    {
+      "term": "\\bpago(s)? tard[ií]o(s)?\\b",
+      "category": "Payment & Subscription",
+      "language": "es"
+    },
+    {
+      "term": "\\bdescuento(s)?\\b",
+      "category": "Payment & Subscription",
+      "language": "es"
+    },
+    {
+      "term": "\\bauthorizaci[óo]n(es)? de cr[eé]dito\\b",
+      "category": "Payment & Subscription",
+      "language": "es"
+    },
+    {
+      "term": "\\bdescargo(s)? de responsabilidad\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "es"
+    },
+    {
+      "term": "\\bsin garant[ií]a(s)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "es"
+    },
+    {
+      "term": "\\bley(es)? aplicable(s)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "es"
+    },
+    {
+      "term": "\\bjurisdicci[óo]n(es)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "es"
+    },
+    {
+      "term": "\\barbitraje(s)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "es"
+    },
+    {
+      "term": "\\brenuncia(s)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "es"
+    },
+    {
+      "term": "\\bdivisibilidad(es)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "es"
+    },
+    {
+      "term": "\\brenuncia(s)? de acci[óo]n colectiva\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "es"
+    },
+    {
+      "term": "\\bper[ií]odo(s)? de limitaci[óo]n\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "es"
+    },
+    {
+      "term": "\\bacuerdo(s)? completo(s)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "es"
+    },
+    {
+      "term": "\\bderechos de autor\\b",
+      "category": "Intellectual Property",
+      "language": "es"
+    },
+    {
+      "term": "\\bmarca(s)? registrada(s)?\\b",
+      "category": "Intellectual Property",
+      "language": "es"
+    },
+    {
+      "term": "\\bpatente(s)?\\b",
+      "category": "Intellectual Property",
+      "language": "es"
+    },
+    {
+      "term": "\\blicencia(s)?\\b",
+      "category": "Intellectual Property",
+      "language": "es"
+    },
+    {
+      "term": "\\bderechos de propiedad\\b",
+      "category": "Intellectual Property",
+      "language": "es"
+    },
+    {
+      "term": "\\bobra(s)? derivada(s)?\\b",
+      "category": "Intellectual Property",
+      "language": "es"
+    },
+    {
+      "term": "\\bpropiedad\\b",
+      "category": "Intellectual Property",
+      "language": "es"
+    },
+    {
+      "term": "\\bcontenido del usuario\\b",
+      "category": "Intellectual Property",
+      "language": "es"
+    },
+    {
+      "term": "\\buso aceptable\\b",
+      "category": "User Conduct",
+      "language": "es"
+    },
+    {
+      "term": "\\bactividad(es)? prohibida(s)?\\b",
+      "category": "User Conduct",
+      "language": "es"
+    },
+    {
+      "term": "\\bt[eé]rminos de servicio\\b",
+      "category": "User Conduct",
+      "language": "es"
+    },
+    {
+      "term": "\\bacuerdo(s)? de usuario\\b",
+      "category": "User Conduct",
+      "language": "es"
+    },
+    {
+      "term": "\\bc[óo]digo de conducta\\b",
+      "category": "User Conduct",
+      "language": "es"
+    },
+    {
+      "term": "\\bviolaci[óo]n(es)?\\b",
+      "category": "User Conduct",
+      "language": "es"
+    },
+    {
+      "term": "\\bsuspensi[óo]n(es)?\\b",
+      "category": "User Conduct",
+      "language": "es"
+    },
+    {
+      "term": "\\bterminaci[óo]n de cuenta\\b",
+      "category": "User Conduct",
+      "language": "es"
+    },
+    {
+      "term": "\\bresponsabilit[ée](s)?\\b",
+      "category": "Rights & Obligations",
+      "language": "fr"
+    },
+    {
+      "term": "\\blimitation(s)? de responsabilit[ée]\\b",
+      "category": "Rights & Obligations",
+      "language": "fr"
+    },
+    {
+      "term": "\\bobligation(s)?\\b",
+      "category": "Rights & Obligations",
+      "language": "fr"
+    },
+    {
+      "term": "\\brupture(s)? de contrat\\b",
+      "category": "Rights & Obligations",
+      "language": "fr"
+    },
+    {
+      "term": "\\bforce majeure\\b",
+      "category": "Rights & Obligations",
+      "language": "fr"
+    },
+    {
+      "term": "\\bcession(s)?\\b",
+      "category": "Rights & Obligations",
+      "language": "fr"
+    },
+    {
+      "term": "\\bdonn[ée]es personnelles\\b",
+      "category": "Data & Privacy",
+      "language": "fr"
+    },
+    {
+      "term": "\\binformation(s)? confidentielle(s)?\\b",
+      "category": "Data & Privacy",
+      "language": "fr"
+    },
+    {
+      "term": "\\btraitement de donn[ée]es\\b",
+      "category": "Data & Privacy",
+      "language": "fr"
+    },
+    {
+      "term": "\\bcontr[ôo]leur(s)? de donn[ée]es\\b",
+      "category": "Data & Privacy",
+      "language": "fr"
+    },
+    {
+      "term": "\\bcookie(s)?\\b",
+      "category": "Data & Privacy",
+      "language": "fr"
+    },
+    {
+      "term": "\\bconsentement(s)?\\b",
+      "category": "Data & Privacy",
+      "language": "fr"
+    },
+    {
+      "term": "\\bp[ée]riode(s)? de conservation\\b",
+      "category": "Data & Privacy",
+      "language": "fr"
+    },
+    {
+      "term": "\\bpartage avec des tiers\\b",
+      "category": "Data & Privacy",
+      "language": "fr"
+    },
+    {
+      "term": "\\banonymisation\\b",
+      "category": "Data & Privacy",
+      "language": "fr"
+    },
+    {
+      "term": "\\bviolation(s)? de donn[ée]es\\b",
+      "category": "Data & Privacy",
+      "language": "fr"
+    },
+    {
+      "term": "\\bcycle(s)? de facturation\\b",
+      "category": "Payment & Subscription",
+      "language": "fr"
+    },
+    {
+      "term": "\\brenouvellement(s)?\\b",
+      "category": "Payment & Subscription",
+      "language": "fr"
+    },
+    {
+      "term": "\\bannulation(s)?\\b",
+      "category": "Payment & Subscription",
+      "language": "fr"
+    },
+    {
+      "term": "\\bpolitique de remboursement\\b|\\bremboursement(s)?\\b",
+      "category": "Payment & Subscription",
+      "language": "fr"
+    },
+    {
+      "term": "\\bfrais d'abonnement\\b",
+      "category": "Payment & Subscription",
+      "language": "fr"
+    },
+    {
+      "term": "\\bp[ée]riode(s)? d'essai\\b",
+      "category": "Payment & Subscription",
+      "language": "fr"
+    },
+    {
+      "term": "\\br[ée]siliation(s)?\\b",
+      "category": "Payment & Subscription",
+      "language": "fr"
+    },
+    {
+      "term": "\\bpaiement(s)? en retard\\b",
+      "category": "Payment & Subscription",
+      "language": "fr"
+    },
+    {
+      "term": "\\bcontre-passation(s)?\\b",
+      "category": "Payment & Subscription",
+      "language": "fr"
+    },
+    {
+      "term": "\\bauthorisation(s)? de cr[ée]dit\\b",
+      "category": "Payment & Subscription",
+      "language": "fr"
+    },
+    {
+      "term": "\\bclause(s)? de non-responsabilit[ée]\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "fr"
+    },
+    {
+      "term": "\\bsans garantie(s)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "fr"
+    },
+    {
+      "term": "\\bloi(s)? applicable(s)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "fr"
+    },
+    {
+      "term": "\\bjuridiction(s)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "fr"
+    },
+    {
+      "term": "\\barbitrage(s)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "fr"
+    },
+    {
+      "term": "\\brenonciation(s)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "fr"
+    },
+    {
+      "term": "\\bdivisibilit[ée](s)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "fr"
+    },
+    {
+      "term": "\\brenonciation(s)? d'action collective\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "fr"
+    },
+    {
+      "term": "\\bd[ée]lai(s)? de prescription\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "fr"
+    },
+    {
+      "term": "\\baccord(s)? complet(s)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "fr"
+    },
+    {
+      "term": "\\bdroits d'auteur\\b",
+      "category": "Intellectual Property",
+      "language": "fr"
+    },
+    {
+      "term": "\\bmarque(s)? de commerce\\b",
+      "category": "Intellectual Property",
+      "language": "fr"
+    },
+    {
+      "term": "\\bbrevet(s)?\\b",
+      "category": "Intellectual Property",
+      "language": "fr"
+    },
+    {
+      "term": "\\blicence(s)?\\b",
+      "category": "Intellectual Property",
+      "language": "fr"
+    },
+    {
+      "term": "\\bdroits de propri[ée]t[ée]\\b",
+      "category": "Intellectual Property",
+      "language": "fr"
+    },
+    {
+      "term": "\\bœuvre(s)? d[ée]riv[ée](s)?\\b",
+      "category": "Intellectual Property",
+      "language": "fr"
+    },
+    {
+      "term": "\\bpropri[ée]t[ée]\\b",
+      "category": "Intellectual Property",
+      "language": "fr"
+    },
+    {
+      "term": "\\bcontenu utilisateur\\b",
+      "category": "Intellectual Property",
+      "language": "fr"
+    },
+    {
+      "term": "\\butilisation acceptable\\b",
+      "category": "User Conduct",
+      "language": "fr"
+    },
+    {
+      "term": "\\bactivit[ée](s)? interdite(s)?\\b",
+      "category": "User Conduct",
+      "language": "fr"
+    },
+    {
+      "term": "\\bconditions d'utilisation\\b",
+      "category": "User Conduct",
+      "language": "fr"
+    },
+    {
+      "term": "\\baccord(s)? utilisateur\\b",
+      "category": "User Conduct",
+      "language": "fr"
+    },
+    {
+      "term": "\\bcode de conduite\\b",
+      "category": "User Conduct",
+      "language": "fr"
+    },
+    {
+      "term": "\\bviolation(s)?\\b",
+      "category": "User Conduct",
+      "language": "fr"
+    },
+    {
+      "term": "\\bsuspension(s)?\\b",
+      "category": "User Conduct",
+      "language": "fr"
+    },
+    {
+      "term": "\\bfermeture de compte\\b",
+      "category": "User Conduct",
+      "language": "fr"
+    },
+    {
+      "term": "\\bHaftung(en)?\\b",
+      "category": "Rights & Obligations",
+      "language": "de"
+    },
+    {
+      "term": "\\bHaftungsbeschr[äa]nkung(en)?\\b",
+      "category": "Rights & Obligations",
+      "language": "de"
+    },
+    {
+      "term": "\\bVerpflichtung(en)?\\b",
+      "category": "Rights & Obligations",
+      "language": "de"
+    },
+    {
+      "term": "\\bVertragsbruch\\b",
+      "category": "Rights & Obligations",
+      "language": "de"
+    },
+    {
+      "term": "\\bH[öo]here Gewalt\\b",
+      "category": "Rights & Obligations",
+      "language": "de"
+    },
+    {
+      "term": "\\bAbtretung(en)?\\b",
+      "category": "Rights & Obligations",
+      "language": "de"
+    },
+    {
+      "term": "\\bpersonenbezogene Daten\\b",
+      "category": "Data & Privacy",
+      "language": "de"
+    },
+    {
+      "term": "\\bvertrauliche Informationen\\b",
+      "category": "Data & Privacy",
+      "language": "de"
+    },
+    {
+      "term": "\\bDatenverarbeitung\\b",
+      "category": "Data & Privacy",
+      "language": "de"
+    },
+    {
+      "term": "\\bDatenverantwortlicher\\b",
+      "category": "Data & Privacy",
+      "language": "de"
+    },
+    {
+      "term": "\\bCookie(s)?\\b",
+      "category": "Data & Privacy",
+      "language": "de"
+    },
+    {
+      "term": "\\bEinwilligung(en)?\\b",
+      "category": "Data & Privacy",
+      "language": "de"
+    },
+    {
+      "term": "\\bAufbewahrungsfrist(en)?\\b",
+      "category": "Data & Privacy",
+      "language": "de"
+    },
+    {
+      "term": "\\bDatenweitergabe an Dritte\\b",
+      "category": "Data & Privacy",
+      "language": "de"
+    },
+    {
+      "term": "\\bAnonymisierung\\b",
+      "category": "Data & Privacy",
+      "language": "de"
+    },
+    {
+      "term": "\\bDatenverletzung(en)?\\b",
+      "category": "Data & Privacy",
+      "language": "de"
+    },
+    {
+      "term": "\\bAbrechnungszyklus\\b",
+      "category": "Payment & Subscription",
+      "language": "de"
+    },
+    {
+      "term": "\\bVerl[äa]ngerung(en)?\\b",
+      "category": "Payment & Subscription",
+      "language": "de"
+    },
+    {
+      "term": "\\bStornierung(en)?\\b",
+      "category": "Payment & Subscription",
+      "language": "de"
+    },
+    {
+      "term": "\\bR[üu]ckerstattungspolitik\\b|\\bR[üu]ckerstattung(en)?\\b",
+      "category": "Payment & Subscription",
+      "language": "de"
+    },
+    {
+      "term": "\\bAbonnementgeb[üu]hr(en)?\\b",
+      "category": "Payment & Subscription",
+      "language": "de"
+    },
+    {
+      "term": "\\bTestzeitraum\\b",
+      "category": "Payment & Subscription",
+      "language": "de"
+    },
+    {
+      "term": "\\bK[üu]ndigung(en)?\\b",
+      "category": "Payment & Subscription",
+      "language": "de"
+    },
+    {
+      "term": "\\bversp[äa]tete Zahlung(en)?\\b",
+      "category": "Payment & Subscription",
+      "language": "de"
+    },
+    {
+      "term": "\\bR[üu]ckbuchung(en)?\\b",
+      "category": "Payment & Subscription",
+      "language": "de"
+    },
+    {
+      "term": "\\bKreditauthorisierung(en)?\\b",
+      "category": "Payment & Subscription",
+      "language": "de"
+    },
+    {
+      "term": "\\bHaftungsausschluss\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "de"
+    },
+    {
+      "term": "\\bkeine Gew[äa]hrleistung\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "de"
+    },
+    {
+      "term": "\\banwendbares Recht\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "de"
+    },
+    {
+      "term": "\\bGerichtsstand\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "de"
+    },
+    {
+      "term": "\\bSchiedsverfahren\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "de"
+    },
+    {
+      "term": "\\bVerzicht(e)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "de"
+    },
+    {
+      "term": "\\bTrennbarkeit\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "de"
+    },
+    {
+      "term": "\\bVerzicht auf Sammelklage\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "de"
+    },
+    {
+      "term": "\\bVerj[äa]hrungsfrist(en)?\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "de"
+    },
+    {
+      "term": "\\bGesamtvereinbarung\\b",
+      "category": "Legal Risks & Disclaimer",
+      "language": "de"
+    },
+    {
+      "term": "\\bUrheberrecht(e)?\\b",
+      "category": "Intellectual Property",
+      "language": "de"
+    },
+    {
+      "term": "\\bMarkenrecht(e)?\\b",
+      "category": "Intellectual Property",
+      "language": "de"
+    },
+    {
+      "term": "\\bPatent(e)?\\b",
+      "category": "Intellectual Property",
+      "language": "de"
+    },
+    {
+      "term": "\\bLizenz(en)?\\b",
+      "category": "Intellectual Property",
+      "language": "de"
+    },
+    {
+      "term": "\\bEigentumsrechte\\b",
+      "category": "Intellectual Property",
+      "language": "de"
+    },
+    {
+      "term": "\\babgeleitete Werke\\b",
+      "category": "Intellectual Property",
+      "language": "de"
+    },
+    {
+      "term": "\\bEigentum\\b",
+      "category": "Intellectual Property",
+      "language": "de"
+    },
+    {
+      "term": "\\bBenutzerinhalt\\b",
+      "category": "Intellectual Property",
+      "language": "de"
+    },
+    {
+      "term": "\\bzul[äa]ssige Nutzung\\b",
+      "category": "User Conduct",
+      "language": "de"
+    },
+    {
+      "term": "\\bverbotene Aktivit[äa]ten\\b",
+      "category": "User Conduct",
+      "language": "de"
+    },
+    {
+      "term": "\\bNutzungsbedingungen\\b",
+      "category": "User Conduct",
+      "language": "de"
+    },
+    {
+      "term": "\\bBenutzervereinbarung(en)?\\b",
+      "category": "User Conduct",
+      "language": "de"
+    },
+    {
+      "term": "\\bVerhaltenskodex\\b",
+      "category": "User Conduct",
+      "language": "de"
+    },
+    {
+      "term": "\\bVerletzung(en)?\\b",
+      "category": "User Conduct",
+      "language": "de"
+    },
+    {
+      "term": "\\bSperrung(en)?\\b",
+      "category": "User Conduct",
+      "language": "de"
+    },
+    {
+      "term": "\\bKontoschlie[ss]ung\\b",
+      "category": "User Conduct",
+      "language": "de"
+    }
+]
