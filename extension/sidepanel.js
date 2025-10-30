@@ -1243,28 +1243,132 @@ Current page context:`;
 
         const { pageSummary, categories, totalTerms, foundTerms, detectedAt, detectionDetails } = this.currentData;
         
-        summaryElement.innerHTML = `
-            <p><strong>Analysis Summary:</strong></p>
-            <p>${pageSummary || 'Legal terms analysis completed.'}</p>
-            <p style="margin-top: 8px; font-size: 12px; color: #6b7280;">
-                Found ${totalTerms || 0} legal terms across ${Object.keys(categories || {}).length} categories.
-                ${detectedAt ? `Detected at ${new Date(detectedAt).toLocaleTimeString()}` : ''}
-            </p>
-            ${foundTerms && foundTerms.length > 0 ? `
-                <div style="margin-top: 12px; padding: 8px; background: #f0f9ff; border-radius: 8px; font-size: 12px;">
-                    <strong>Recent detections:</strong><br>
-                    ${foundTerms.slice(-3).map(term => `• ${term.phrase} (${term.cat})`).join('<br>')}
-                </div>
-            ` : ''}
-            ${detectionDetails ? `
-                <div style="margin-top: 8px; padding: 8px; background: #f0fdf4; border-radius: 8px; font-size: 12px;">
-                    <strong>Detection Details:</strong><br>
-                    Total: ${detectionDetails.totalDetections} terms<br>
-                    Categories: ${detectionDetails.categoriesFound.join(', ')}
-                </div>
-            ` : ''}
-        `;
+		summaryElement.innerHTML = `
+			<p><strong>Analysis Summary:</strong></p>
+			<p>${pageSummary || 'Legal terms analysis completed.'}</p>
+			<p style="margin-top: 8px; font-size: 12px; color: #6b7280;">
+				Found ${totalTerms || 0} legal terms across ${Object.keys(categories || {}).length} categories.
+				${detectedAt ? `Detected at ${new Date(detectedAt).toLocaleTimeString()}` : ''}
+			</p>
+			<div id="summary-section" style="margin-top: 12px; padding: 8px; background: #f0f9ff; border-radius: 8px; font-size: 12px;">
+				<em style="color: #64748b;">Generating page summary…</em>
+			</div>
+			${detectionDetails ? `
+				<div style="margin-top: 8px; padding: 8px; background: #f0fdf4; border-radius: 8px; font-size: 12px;">
+					<strong>Detection Details:</strong><br>
+					Total: ${detectionDetails.totalDetections} terms<br>
+					Categories: ${detectionDetails.categoriesFound.join(', ')}
+				</div>
+			` : ''}
+		`;
+
+		// Kick off AI summarization (non-blocking)
+		this.generatePageSummaryWithAI().catch(() => {
+			const container = document.getElementById('summary-section');
+			if (container) {
+				container.innerHTML = '<em style="color: #9ca3af;">Summary not available</em>';
+			}
+		});
     }
+
+	async generatePageSummaryWithAI() {
+		try {
+			const container = document.getElementById('summary-section');
+			if (!container) return;
+
+			// Validate Summarizer API availability per Chrome docs
+			if (!('Summarizer' in self)) {
+				container.innerHTML = '<em style="color: #9ca3af;">Summary not available</em>';
+				return;
+			}
+
+			// Retrieve page text from the content script
+			let pageText = '';
+			let pageLang = undefined;
+			try {
+				const response = await chrome.tabs.sendMessage(this.currentTabId, { type: 'GET_PAGE_TEXT' });
+				if (response?.success && typeof response.text === 'string') {
+					pageText = response.text;
+				}
+			} catch (e) {
+				// ignore; will fallback below
+			}
+
+			// Try to get detected page language (for multilingual output)
+			try {
+				const langRes = await chrome.tabs.sendMessage(this.currentTabId, { type: 'GET_PAGE_LANG' });
+				if (langRes?.success && typeof langRes.lang === 'string' && langRes.lang.length <= 5) {
+					pageLang = langRes.lang;
+				}
+			} catch (e) {
+				// optional
+			}
+
+			if (!pageText || pageText.trim().length < 50) {
+				container.innerHTML = '<em style="color: #9ca3af;">Summary not available</em>';
+				return;
+			}
+
+			// Create summarizer with medium length for ~100–150 words
+			let summarizer;
+			try {
+				summarizer = await Summarizer.create({
+					type: 'tldr',
+					format: 'plain-text',
+					length: 'medium',
+					outputLanguage: pageLang,
+					sharedContext: 'Act as a legal expert. Create a concise, informative summary (100–150 words) of the page focusing on key points, obligations, rights, risks, and notable legal implications. Use clear, neutral tone.'
+				});
+			} catch (e) {
+				// If user activation is required, show a button to retry
+				if (String(e?.message || '').toLowerCase().includes('activation') || String(e).toLowerCase().includes('gesture')) {
+					container.innerHTML = '<button id="lg-generate-summary" style="all: unset; cursor: pointer; color: #2563eb;">Click to generate summary</button>';
+					document.getElementById('lg-generate-summary')?.addEventListener('click', async () => {
+						container.innerHTML = '<em style="color: #64748b;">Generating page summary…</em>';
+						try {
+							const s = await Summarizer.create({
+								type: 'tldr',
+								format: 'plain-text',
+								length: 'medium',
+								outputLanguage: pageLang,
+								sharedContext: 'Act as a legal expert. Create a concise, informative summary (100–150 words) of the page focusing on key points, obligations, rights, risks, and notable legal implications. Use clear, neutral tone.'
+							});
+							const text = await s.summarize(pageText, { context: 'Remove boilerplate and navigation text. Focus on substantive content.' });
+							container.textContent = (text || '').trim() || 'Summary not available';
+						} catch (innerErr) {
+							container.innerHTML = '<em style="color: #9ca3af;">Summary not available</em>';
+						}
+					});
+					return;
+				}
+				container.innerHTML = '<em style="color: #9ca3af;">Summary not available</em>';
+				return;
+			}
+
+			let summaryText = '';
+			try {
+				summaryText = await summarizer.summarize(pageText, {
+					context: 'Remove boilerplate and navigation text. Focus on substantive content.'
+				});
+			} catch (e) {
+				container.innerHTML = '<em style="color: #9ca3af;">Summary not available</em>';
+				return;
+			}
+
+			if (!summaryText || !summaryText.trim()) {
+				container.innerHTML = '<em style="color: #9ca3af;">Summary not available</em>';
+				return;
+			}
+
+			// Insert the summary
+			container.textContent = summaryText.trim();
+		} catch (error) {
+			const container = document.getElementById('summary-section');
+			if (container) {
+				container.innerHTML = '<em style="color: #9ca3af;">Summary not available</em>';
+			}
+		}
+	}
 
     renderCategories() {
         const categoriesList = document.getElementById('categoriesList');

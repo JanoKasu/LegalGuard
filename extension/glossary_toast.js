@@ -845,6 +845,29 @@ if (
                     return true;
                 }
                 
+                if (request.type === 'GET_PAGE_TEXT') {
+                    try {
+                        const raw = document.body?.innerText || '';
+                        // Limit to avoid oversized messages; keep enough for summarization
+                        const MAX_CHARS = 120000;
+                        const text = raw.length > MAX_CHARS ? raw.slice(0, MAX_CHARS) : raw;
+                        sendResponse({ success: true, text });
+                    } catch (e) {
+                        sendResponse({ success: false, error: e?.message || 'Failed to read page text' });
+                    }
+                    return true;
+                }
+
+                if (request.type === 'GET_PAGE_LANG') {
+                    try {
+                        const lang = (typeof detectPageLanguage === 'function') ? detectPageLanguage() : (document.documentElement.lang || 'en').split('-')[0].toLowerCase();
+                        sendResponse({ success: true, lang });
+                    } catch (e) {
+                        sendResponse({ success: false, lang: 'en' });
+                    }
+                    return true;
+                }
+                
                 // Handle unknown request types
                 sendResponse({ success: false, error: 'Unknown request type' });
                 return true;
