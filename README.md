@@ -114,8 +114,8 @@ extension/
 ### Setup Development Environment
 ```bash
 # Clone and navigate to project
-git clone https://github.com/yourusername/LegalTextSimplifier.git
-cd LegalTextSimplifier
+git clone https://github.com/JanoKasu/LegalGuard.git
+cd LegalGuard
 
 # Load extension in Chrome
 # 1. Go to chrome://extensions/
@@ -190,8 +190,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 🐛 **Bug Reports**: [Open an issue](https://github.com/yourusername/LegalTextSimplifier/issues)
-- 💡 **Feature Requests**: [Start a discussion](https://github.com/yourusername/LegalTextSimplifier/discussions)
+- 🐛 **Bug Reports**: [Open an issue](https://github.com/JanoKasu/LegalGuard/issues)
+- 💡 **Feature Requests**: [Start a discussion](https://github.com/JanoKasu/LegalGuard/discussions)
 - 📧 **Contact**: [08ireneye@gmail.com](08ireneye@gmail.com)
 If you’re looking to **collaborate**, **find engineers or product managers**, or just want to **discuss ideas around AI + law**, feel free to reach out — we’d love to connect! 🤝
 ---
