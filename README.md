@@ -22,11 +22,11 @@ Our mission: make digital consent *informed*, *accessible*, and *human-centered.
 |----------|--------------|
 | ⚖️ **Clause Detection** | Detects and classifies legal keywords (e.g., *privacy*, *liability*, *IP rights*, *payment terms*) using a curated glossary. |
 | 💬 **Contextual Toast Alerts** | Instantly surfaces a toast explaining the type and risk level of detected clauses. |
-| 📊 **Side Panel Analysis** | Summarizes detected clauses, risk categories, and severity levels — powered by **Chrome Summarizer API**. |
+| 📊 **Side Panel Analysis** | Uses **Chrome Summarizer API** Summarizing detected clauses, risk categories, and severity levels. |
 | 🌐 **AI Translation** | Uses **Chrome Translator API** to render summaries in the user's preferred language. |
+| 💡 **Prompt-Powered Q&A**| Integrates the **Chrome Prompt API**, enabling users to ask questions about any detected clause and receive clear, AI-generated explanations. |
 | 🔄 **Seamless Workflow** | Works automatically — users simply browse, and LegalGuard activates in context. |
 | 🎯 **Smart Highlighting** | Highlights detected legal terms directly on the page for easy identification. |
-| 💬 **Interactive Q&A** | Ask questions about detected clauses and get AI-powered explanations. |
 | 🎨 **ELI3 Mode** | Get explanations "like you're 3 years old" for maximum clarity. |
 
 ---
@@ -192,7 +192,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - 🐛 **Bug Reports**: [Open an issue](https://github.com/yourusername/LegalTextSimplifier/issues)
 - 💡 **Feature Requests**: [Start a discussion](https://github.com/yourusername/LegalTextSimplifier/discussions)
-- 📧 **Contact**: [your-email@example.com](08ireneye@gmail.com)
+- 📧 **Contact**: [08ireneye@gmail.com](08ireneye@gmail.com)
 If you’re looking to **collaborate**, **find engineers or product managers**, or just want to **discuss ideas around AI + law**, feel free to reach out — we’d love to connect! 🤝
 ---
 
