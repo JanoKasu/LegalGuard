@@ -192,7 +192,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - 🐛 **Bug Reports**: [Open an issue](https://github.com/JanoKasu/LegalGuard/issues)
 - 💡 **Feature Requests**: [Start a discussion](https://github.com/JanoKasu/LegalGuard/discussions)
-- 📧 **Contact**: [08ireneye@gmail.com](08ireneye@gmail.com)
+- 📧 **Contact**: [08ireneye@gmail.com](08ireneye@gmail.com) [ianandesmccracken@gmail.com](ianandesmccracken@gmail.com)
 If you’re looking to **collaborate**, **find engineers or product managers**, or just want to **discuss ideas around AI + law**, feel free to reach out — we’d love to connect! 🤝
 ---
 
