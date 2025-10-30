@@ -12,7 +12,7 @@
 
 Every year, an average internet user encounters **1,400+ privacy notices** and terms of service agreements — most of which go unread.  
 **LegalGuard** brings AI directly into your browser to **analyze**, **summarize**, and **translate** complex legal text in real time.  
-Our mission: make digital consent *informed*, *accessible*, and *human-centered.*
+Our mission: Protect your legal rights — never let hidden clauses take them away without you knowing.
 
 ---
 
