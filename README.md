@@ -40,8 +40,8 @@ Our mission: Protect your legal rights — never let hidden clauses take them aw
 ### Install from Source
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/LegalTextSimplifier.git
-   cd LegalTextSimplifier
+   git clone https://github.com/JanoKasu/LegalTextSimplifier.git LegalGuard
+   cd LegalGuard
    ```
 
 2. **Load the extension:**
@@ -135,12 +135,6 @@ cd LegalGuard
 3. **Check console** for any errors or warnings
 4. **Test AI features** require Chrome with AI APIs enabled
 
-### Building for Production
-```bash
-# Create a zip file for Chrome Web Store submission
-zip -r LegalGuard-v5.0.zip extension/
-```
-
 ---
 
 ## 🤝 Contributing
@@ -173,7 +167,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### Core Team
 - **Yiran (Irene) Ye** — Product/UX/Frontend Development
-- **Pelican** — Backend/UI System Integration
+- **Ian McCracken** — Backend/UI System Integration
 
 ### AI Collaborators
 - Gemini, ChatGPT, Vercel, Cursor
